@@ -1,6 +1,10 @@
 ---
 sudo: required
 
+branches:
+  only:
+    - master
+
 env:
   # https://github.com/travis-ci/travis-ci/issues/6461#issuecomment-239577306
   DOCKER_VERSION: "1.9.1-0~trusty"
@@ -52,7 +56,7 @@ before_install:
   - 'sudo docker pull ${repository}:${version}'
 
   # Customize containers
- - 'sudo docker build --rm=true --file=tests/Dockerfile.${distribution}-${version} --tag=${distribution}-${version}:ansible tests'
+  - 'sudo docker build --rm=true --file=tests/Dockerfile.${distribution}-${version} --tag=${distribution}-${version}:ansible tests'
 
 script:
   # Run container in detached state
