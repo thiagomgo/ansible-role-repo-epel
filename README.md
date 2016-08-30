@@ -1,6 +1,6 @@
 # **Ansible Role: Repo Epel**
 
-[![Build Status](https://travis-ci.org/thiagomgo/ansible-role-repo-epel.svg?branch=master)](https://travis-ci.org/thiagomgo/ansible-role-repo-epel) [![Ansible Galaxy](https://img.shields.io/badge/ansible--galaxy-repo-epel-blue.svg)](https://galaxy.ansible.com/thiagomgo/repo-epel/)
+[![Build Status](https://travis-ci.org/thiagomgo/ansible-role-repo-epel.svg?branch=master)](https://travis-ci.org/thiagomgo/ansible-role-repo-epel) [![Ansible Galaxy](https://img.shields.io/badge/ansible--galaxy-repo--epel-blue.svg)](https://galaxy.ansible.com/thiagomgo/repo-epel/)
 
 A simple ansible role to install EPEL repository.
 

@@ -15,20 +15,6 @@ env:
     - CONTAINER_ID=$(mktemp)
     - IDEMPOTENCE=$(mktemp)
 
-    - ANSIBLE_VERSION=latest
-    - ANSIBLE_VERSION=2.1.0.0
-    - ANSIBLE_VERSION=2.0.2.0
-    - ANSIBLE_VERSION=2.0.1.0
-    - ANSIBLE_VERSION=2.0.0.2
-    - ANSIBLE_VERSION=2.0.0.1
-    - ANSIBLE_VERSION=2.0.0.0
-    - ANSIBLE_VERSION=1.9.6
-    - ANSIBLE_VERSION=1.9.5
-    - ANSIBLE_VERSION=1.9.4
-    - ANSIBLE_VERSION=1.9.3
-    - ANSIBLE_VERSION=1.9.2
-    - ANSIBLE_VERSION=1.9.1
-    - ANSIBLE_VERSION=1.9.0.1
   matrix:
     - distribution: centos
       version: 7
@@ -38,14 +24,6 @@ env:
       version: 6
       init: /sbin/init
       run_opts: ""
-    #- distribution: ubuntu
-    #  version: 14.04
-    #  init: /sbin/init
-    #  run_opts: ""
-    #- distribution: ubuntu
-    #  version: 12.04
-    #  init: /sbin/init
-    #  run_opts: ""
 
 services:
   - docker
