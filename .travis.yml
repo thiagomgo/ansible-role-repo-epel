@@ -64,17 +64,16 @@ before_install:
 
 script:
   # Run container in detached state
-  #- 'sudo docker run --detach --privileged --volume="${PWD}":/etc/ansible/roles/role_under_test:ro ${run_opts} ${distribution}-${version}:ansible "${init}" > "${CONTAINER_ID}"'
-  - sudo docker run --detach --privileged --volume=/sys/fs/cgroup:/sys/fs/cgroup:ro ${run_opts} ${distribution}-${version}:ansible "${init}" > "${CONTAINER_ID}"
+  - 'sudo docker run --detach --privileged --volume="${PWD}":/etc/ansible/roles/role_under_test:ro ${run_opts} ${distribution}-${version}:ansible "${init}" > "${CONTAINER_ID}"'
 
   # Ansible syntax check.
-  - 'sudo docker exec --tty "$(cat ${CONTAINER_ID})" env TERM=xterm ansible-playbook /etc/ansible/test.yml --syntax-check'
+  - 'sudo docker exec --tty "$(cat ${CONTAINER_ID})" env TERM=xterm ansible-playbook /etc/ansible/roles/role_under_test/tests/test.yml --syntax-check'
 
   # Test role.
-  - 'sudo docker exec --tty "$(cat ${CONTAINER_ID})" env TERM=xterm ansible-playbook /etc/ansible/test.yml'
+  - 'sudo docker exec --tty "$(cat ${CONTAINER_ID})" env TERM=xterm ansible-playbook /etc/ansible/roles/role_under_test/tests/test.yml'
 
   # Test role idempotence.
-  - sudo docker exec "$(cat ${CONTAINER_ID})" ansible-playbook /etc/ansible/test.yml | tee -a ${IDEMPOTENCE}
+  - sudo docker exec "$(cat ${CONTAINER_ID})" ansible-playbook /etc/ansible/roles/role_under_test/tests/test.yml | tee -a ${IDEMPOTENCE}
   - >
     tail ${IDEMPOTENCE}
     | grep -q 'changed=0.*failed=0'

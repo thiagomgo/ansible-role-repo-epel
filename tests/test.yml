@@ -3,7 +3,6 @@
 # Test file for repo-epel
 
 - hosts: all
-  connection: local
 
   roles:
-    - ansible-role-repo-epel
+    - role_under_test
