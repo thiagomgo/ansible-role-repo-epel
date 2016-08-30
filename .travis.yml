@@ -1,6 +1,9 @@
 ---
 sudo: required
 
+language: python
+python: "2.7"
+
 branches:
   only:
     - master
@@ -54,7 +57,7 @@ before_install:
   - sudo apt-get install docker-engine=$DOCKER_VERSION -yq --no-install-suggests --no-install-recommends --force-yes -o Dpkg::Options::="--force-confnew"
 
   # Pull container
-  - 'sudo docker pull ${repository}:${version}'
+  - 'sudo docker pull ${distribution}:${version}'
 
   # Customize containers
   - 'sudo docker build --rm=true --file=tests/Dockerfile.${distribution}-${version} --tag=${distribution}-${version}:ansible tests'
