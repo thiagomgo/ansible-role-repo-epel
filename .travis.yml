@@ -1,10 +1,6 @@
 ---
 sudo: required
 
-branches:
-  only:
-    - master
-
 env:
   # https://github.com/travis-ci/travis-ci/issues/6461#issuecomment-239577306
   DOCKER_VERSION: "1.9.1-0~trusty"
